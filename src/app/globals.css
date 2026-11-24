@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+  }
+  ::selection {
+    @apply bg-signal text-ink;
+  }
+  :focus-visible {
+    outline: 3px solid #1f6a80;
+    outline-offset: 3px;
+  }
+  .bg-ink :focus-visible {
+    outline-color: #f4c531;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer components {
+  /* Archivo's width axis is what gives the headings their weight on the page. */
+  .display {
+    font-stretch: 112%;
+    font-weight: 640;
+  }
+  .wrap {
+    @apply px-gutter;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
